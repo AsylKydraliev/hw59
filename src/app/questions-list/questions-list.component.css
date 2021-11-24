@@ -1,0 +1,9 @@
+.border-green{
+  border-radius: 20px;
+  box-shadow: 0 1px 10px 7px #10B031;
+}
+
+.border-red{
+  border-radius: 20px;
+  box-shadow: 0 1px 10px 7px #FF250B;
+}
