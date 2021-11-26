@@ -7,7 +7,6 @@ import { QuestionService } from './shared/question.service';
 import { QuestionFormComponent } from './questions-list/question-form/question-form.component';
 import { FormsModule } from '@angular/forms';
 import { CardShadowDirective } from './directives/cardShadow.directive';
-import { PromptCloseOpenDirective } from './directives/promptCloseOpen.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { PromptCloseOpenDirective } from './directives/promptCloseOpen.directive
     QuestionsListComponent,
     QuestionFormComponent,
     CardShadowDirective,
-    PromptCloseOpenDirective
   ],
   imports: [
     FormsModule,

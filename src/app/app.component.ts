@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuestionService } from './shared/question.service';
 import { Question } from './shared/question.modal';
 
@@ -9,12 +9,16 @@ import { Question } from './shared/question.modal';
 })
 export class AppComponent implements OnInit{
   questions!: Question[];
-  constructor(private questionService: QuestionService) {};
+  count = 0;
+  @Input() answerStatus = '';
+  constructor(public questionService: QuestionService) {};
+
 
   ngOnInit(){
     this.questions = this.questionService.getQuestions();
     this.questionService.questionChange.subscribe((questions:Question[]) => {
       this.questions = questions;
     });
+    this.count = this.questionService.amount;
   }
 }

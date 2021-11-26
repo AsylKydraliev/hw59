@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { QuestionService } from '../../shared/question.service';
 import { Question } from '../../shared/question.modal';
 
@@ -7,21 +7,27 @@ import { Question } from '../../shared/question.modal';
   templateUrl: './question-form.component.html',
   styleUrls: ['./question-form.component.css']
 })
-export class QuestionFormComponent {
+export class QuestionFormComponent implements OnInit{
   questions!: Question[];
   @Input() index!: number;
-  @Output() clickBtn = new EventEmitter<Question>();
   @ViewChild('inputValue') inputValue!: ElementRef;
 
   constructor(private questionService: QuestionService) {}
 
+  ngOnInit(){
+    this.questionService.questionChange.subscribe((questions:Question[]) => {
+      this.questions = questions;
+    });
+  }
+
   getInputValue(index: number) {
     const answer = this.inputValue.nativeElement.value;
-
     this.questions = this.questionService.getQuestions();
+
     for(let i = 0; i < this.questions.length; i++) {
       this.questions[i].status = this.questions[i] === this.questionService.getQuestions()[index];
     }
+
     this.questions.forEach(item => {
       if(item.status) {
         if(answer === item.correctAnswer){
