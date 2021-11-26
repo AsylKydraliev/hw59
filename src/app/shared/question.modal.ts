@@ -4,6 +4,7 @@ export class Question {
     public correctAnswer:string,
     public prompt: string,
     public answerStatus: string,
+    public status: boolean,
   ) {
   }
 }

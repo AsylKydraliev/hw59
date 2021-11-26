@@ -1,16 +1,15 @@
 <div class="list-group-item text-center active" aria-current="true">
   <h2>
-    Тест на знания структурных директив в Angular
+    Тест на знание структурных директив в Angular
   </h2>
 </div>
-<div class="container border-success">
  <app-questions-list
    *ngFor="let question of questions; let i = index"
    [questionText]="question.questionText"
    [correctAnswer]="question.correctAnswer"
    [prompt]="question.prompt"
    [answerStatus]="question.answerStatus"
+   [status]="question.status"
    [index] = 'i'
  >
  </app-questions-list>
-</div>

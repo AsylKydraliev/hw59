@@ -1,7 +1,14 @@
-<div class="list-group m-3 {{ getClassNameBorder() }}">
-  <div class="list-group-item">
+<div class="list-group m-3" >
+  <div class="list-group-item" cardShadow="{{ answerStatus }}">
     {{ questionText }}
-    <app-question-form [index]="index"></app-question-form>
-    <button type="button" class="btn btn-outline-danger mt-3">Получить подсказку</button>
+    <app-question-form
+      [index]="index"
+    ></app-question-form>
+    <button
+      type="button"
+      class="btn btn-outline-danger mt-3"
+      (click)="isOpenPrompt = !isOpenPrompt"
+    >Подсказка</button>
+    <p class="mt-2" *ngIf="isOpenPrompt">{{ prompt }}</p>
   </div>
 </div>

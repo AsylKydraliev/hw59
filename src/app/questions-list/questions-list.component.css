@@ -7,3 +7,8 @@
   border-radius: 20px;
   box-shadow: 0 1px 10px 7px #FF250B;
 }
+
+.border-none{
+  border-radius: 20px;
+}
+

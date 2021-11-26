@@ -10,17 +10,7 @@ export class QuestionsListComponent {
   @Input() correctAnswer = '';
   @Input() prompt = '';
   @Input() answerStatus = '';
-  borderColor = '';
+  @Input() status = false;
   @Input() index!: number;
-
-  getClassNameBorder(){
-    if(this.answerStatus === 'Ответ верный'){
-      this.borderColor = 'border-green';
-    } else if(this.answerStatus === 'Ответ не верный') {
-      this.borderColor = 'border-red';
-    } else if(this.answerStatus === 'нет ответа'){
-      this.borderColor = '';
-    }
-    return this.borderColor;
-  }
+  isOpenPrompt = false;
 }
